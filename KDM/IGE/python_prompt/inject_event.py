@@ -132,7 +132,7 @@ def calcu_new_classes_info():
     for name in ["suicide_ied", "wiki_ied_bombings", "wiki_mass_car_bombings"]:
         for i in range(input_num):
             [new_classes_relation_i, all_events_i, schema_res_i] = pickle.load(
-                            open('../../../data/Wiki_IED_split/enhance_process_dir3/'+name+'_final_rel_'+str(i)+'.pkl', 'rb'))
+                            open('../../../data/Wiki_IED_split/enhance_process_dir/'+name+'_final_rel_'+str(i)+'.pkl', 'rb'))
             for event_tuple in schema_res_i:
                 if event_tuple[0].lower() not in new_event_dict:
                     if event_tuple[0].lower() in link_event_dict:
@@ -151,7 +151,7 @@ def inject_knowledge_to_graphs(name, new_event_dict, td = 'train'):
     for i in range(input_num):
         new_classes_relation_i_clean = []
         [new_classes_relation_i, all_events_i, schema_res_i] = pickle.load(
-                        open('../../../data/Wiki_IED_split/enhance_process_dir3/'+name+'_final_rel_'+str(i)+'.pkl', 'rb'))
+                        open('../../../data/Wiki_IED_split/enhance_process_dir/'+name+'_final_rel_'+str(i)+'.pkl', 'rb'))
         assert len(new_classes_relation_i) == len(schema_res_i)
         for i, rel in enumerate(new_classes_relation_i):
             
@@ -217,7 +217,7 @@ def inject_knowledge_to_graphs(name, new_event_dict, td = 'train'):
         g = _reorder_graph(g)
         graph.append((g, len(list(g.vs))))
     depth  = get_node_depth(graph)
-    with open('../../../data/Wiki_IED_split/'+td+'/' + name + '_'+td+'_pruned_new_no_iso_max_50_remove_same_type_knowledge_inject_p_6_igraphs_version_9.pkl', 'wb') as handle:
+    with open('../../../data/Wiki_IED_split/'+td+'/' + name + '_'+td+'_pruned_new_no_iso_max_50_remove_same_type_knowledge_inject_p_6_igraphs.pkl', 'wb') as handle:
         pickle.dump([graph, depth], handle)
 
 def _get_nodes_for_start_end(graph, node_num):

@@ -142,7 +142,7 @@ def get_schema_list(name):
     all_events = []
     for i in range(input_num):
         [new_classes_relation_i, all_events_i] = pickle.load(
-                        open('../../../data/Wiki_IED_split/enhance_process_dir3/'+name+'_argument_rel_'+str(i)+'.pkl', 'rb'))
+                        open('../../../data/Wiki_IED_split/enhance_process_dir/'+name+'_argument_rel_'+str(i)+'.pkl', 'rb'))
         new_classes_relation.append(new_classes_relation_i)
 
         all_events.append(all_events_i)
@@ -174,7 +174,7 @@ def get_final_info(name, schema_res, all_events):
         print(schema_res[i])
         assert len(schema_res[i]) == len(new_classes_relation[i])
         print("*"*100)
-        with open('../../../data/Wiki_IED_split/enhance_process_dir3/'+name+'_final_rel_' + str(i) + '.pkl', 'wb') as handle:
+        with open('../../../data/Wiki_IED_split/enhance_process_dir/'+name+'_final_rel_' + str(i) + '.pkl', 'wb') as handle:
             pickle.dump([new_classes_relation[i], all_events[i], schema_res[i]], handle)
 
 if __name__ == "__main__":

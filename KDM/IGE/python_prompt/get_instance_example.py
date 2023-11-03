@@ -246,7 +246,7 @@ def select_class_and_get_rel(name):
 
             new_class_relation.append(text_generation)
         new_classes_relation.append(new_class_relation)
-        with open('../../../data/Wiki_IED_split/enhance_process_dir3/'+name+'_argument_rel_' + str(i) + '.pkl', 'wb') as handle:
+        with open('../../../data/Wiki_IED_split/enhance_process_dir/'+name+'_argument_rel_' + str(i) + '.pkl', 'wb') as handle:
             pickle.dump([new_classes_relation[i], all_events[i]], handle)
 
 

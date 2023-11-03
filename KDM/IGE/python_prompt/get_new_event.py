@@ -228,8 +228,8 @@ def get_gpt_class_responce(name):
             print(text_generation)
             print("\n"*3)
             possible_knowledge[i].append(text_generation)
-        print("saved in " + '../../../data/Wiki_IED_split/enhance_process_dir3/' + name + '_argument_local_knowledge_dataset_' + str(i) + '.pkl')
-        with open('../../../data/Wiki_IED_split/enhance_process_dir3/' + name + '_argument_local_knowledge_dataset_' + str(i) + '.pkl', 'wb') as handle:
+        print("saved in " + '../../../data/Wiki_IED_split/enhance_process_dir/' + name + '_argument_local_knowledge_dataset_' + str(i) + '.pkl')
+        with open('../../../data/Wiki_IED_split/enhance_process_dir/' + name + '_argument_local_knowledge_dataset_' + str(i) + '.pkl', 'wb') as handle:
             pickle.dump([possible_knowledge[i], all_events[i]], handle)
 
 if __name__ == "__main__":
